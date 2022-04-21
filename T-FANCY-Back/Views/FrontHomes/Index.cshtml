@@ -1,0 +1,53 @@
+﻿@model IEnumerable<T_FANCY_Back.Models.FrontHome>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.animated_text)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.historical_text)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hommeCollection_image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.femmeCollection_image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.animated_text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.historical_text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hommeCollection_image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.femmeCollection_image)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
